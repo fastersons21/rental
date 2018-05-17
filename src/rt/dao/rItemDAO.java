@@ -104,19 +104,20 @@ public class rItemDAO {
 		}
 	}
 
-	public int addItem(String name,int price) throws DAOException{
+	public int addItem(String name,int stock,int price) throws DAOException{
 		if(con == null)
 			getConnection();
 
 		PreparedStatement st = null;
 		try {
 			//SQL文の作成
-			String sql = "insert into item(name,price)values(?,?)";
+			String sql = "insert into item(name,stock,price)values(?,?,?)";
 			//PreparedStatementオブジェクトの取得
 			st = con.prepareStatement(sql);
 			//商品名と値段の指定
 			st.setString(1, name);
-			st.setInt(2, price);
+			st.setInt(2, stock);
+			st.setInt(3, price);
 			//SQLの実行
 			int rows = st.executeUpdate();
 			return rows;

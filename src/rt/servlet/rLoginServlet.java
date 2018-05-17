@@ -1,6 +1,7 @@
 package rt.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -26,6 +27,7 @@ public class rLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 //		PrintWriter out = response.getWriter();
 //		//ログイン済みかどうかチェックする
 //		HttpSession session = request.getSession(false);
@@ -43,6 +45,8 @@ public class rLoginServlet extends HttpServlet {
 //		}
 		rLoginDAO dao = new rLoginDAO();
 		ArrayList<rUserBean> list = dao.findAll();
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("userLogin.jsp").forward(request,response);
 		
 		//actionリクエストパラメータの読み込み
 		String action = request.getParameter("action");
