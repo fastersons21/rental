@@ -32,7 +32,7 @@ public class rLoginDAO {
 			//結果の取得及び表示
 			ArrayList<rUserBean> list = new ArrayList<rUserBean>();
 			while(rs.next()) {
-				String name = rs.getString("name");
+				String name = rs.getString("username");
 				String Password = rs.getString("password");
 				rUserBean bean = new rUserBean(name,Password);
 				list.add(bean);

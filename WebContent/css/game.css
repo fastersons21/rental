@@ -1,0 +1,10 @@
+body {
+        /* 背景 */
+        background-image: url("/rental/img/ff15.jpg") ;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        /* 文字 */
+    color: white;
+        }

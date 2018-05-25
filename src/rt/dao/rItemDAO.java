@@ -18,7 +18,7 @@ public class rItemDAO {
 	}
 
 	public List<rItemBean> findAll() throws DAOException{
-		if(con == null)
+//		if(con == null)
 			getConnection();
 
 		PreparedStatement st = null;
